@@ -133,7 +133,7 @@ ffmpeg -re -i big_buck_bunny.mp4 -vcodec mpeg4 -an -b 1024k -s 640x480 -f mpegts
 # run a container and expose udp port 9999
 docker run -itd --name=ffmpegTranscoder -p 9999:9999/udp tgogos/ffmpeg
 docker attach ffmpegTranscoder
-# send back to udp port 9998 
+# send back through udp port 9998 
 ffmpeg -re -i udp:10.143.0.245:9999 -vcodec mpeg4 -b:v 2048 -f mpegts udp:10.143.0.245:9998?pkt_size=1316
 
 
