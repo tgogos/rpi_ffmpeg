@@ -1,9 +1,12 @@
-# How to install ffmpeg on Raspberry Pi 3
+# Install and test ffmpeg on Raspberry Pi 3 (with Docker)
+
+Docker containers were used, so ffmpeg was not installed directly on the RPi. The docker image has been pushed to [https://hub.docker.com/r/tgogos/ffmpeg/](https://hub.docker.com/r/tgogos/ffmpeg/), you can save time by pulling it and then start testing... If you'd like to reproduce the whole process take a look at the section below "Download ffmpeg source code / compile"
+
 
 ## Test environment
  - Raspberry Pi 3
  - Host OS: Raspbian Jessie Lite image (downloaded [2016-09-23-raspbian-jessie-lite.zip](http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2016-09-28/2016-09-23-raspbian-jessie-lite.zip) from the official site)
- - Docker image: `docker pull resin/rpi-raspbian:jessie-20160831`
+ - Docker image to start with (FROM): `resin/rpi-raspbian:jessie-20160831`
 
 ## Download ffmpeg source code / compile
 `* Beware that this compilation procedure takes a few hours to finish`
@@ -22,9 +25,8 @@ make
 make install
 ```
 
-This image was committed and pushed to [https://hub.docker.com/r/tgogos/ffmpeg/](https://hub.docker.com/r/tgogos/ffmpeg/)
 
-## Test with Docker & without OVS
+## 1. Test with Docker & without OVS
 ```bash
 
 +------------------------+              +------------------------+ 
@@ -49,7 +51,7 @@ ffplay udp://10.143.0.246:9999
 ```
 
 
-## Test with Docker & OVS
+## 2. Test with Docker & OVS
 Open vSwitch must be installed on the docker host which is the Raspberry Pi, not on any other docker container. Network configuration comes from this source: [https://developer.ibm.com/recipes/tutorials/using-ovs-bridge-for-docker-networking/](https://developer.ibm.com/recipes/tutorials/using-ovs-bridge-for-docker-networking/)
 ```bash
 
@@ -102,7 +104,7 @@ sudo ovs-vsctl del-br name_of_bridge
 
 
 
-## Test with Docker (as transcoder)
+## 3. Test with Docker (as transcoder)
 ```bash
 
 +------------------------+              +------------------------+ 
