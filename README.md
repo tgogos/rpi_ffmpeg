@@ -7,6 +7,7 @@ Docker containers were used, so ffmpeg was not installed directly on the RPi. Th
  - Raspberry Pi 3
  - Host OS: Raspbian Jessie Lite image (downloaded [2016-09-23-raspbian-jessie-lite.zip](http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2016-09-28/2016-09-23-raspbian-jessie-lite.zip) from the official site)
  - Docker image to start with (FROM): `resin/rpi-raspbian:jessie-20160831`
+ - Video file: Big Buck Bunny by Blender Foundation [https://www.youtube.com/watch?v=YE7VzlLtp-4](https://www.youtube.com/watch?v=YE7VzlLtp-4)
 
 ## Download ffmpeg source code / compile
 `* Beware that this compilation procedure takes a few hours to finish`
