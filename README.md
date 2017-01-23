@@ -1,3 +1,40 @@
+# FFmpeg on Raspberry Pi 3 with h264 support (2017/01/23)
+
+Steps below are a combination of these 2 sources:
+ - [https://www.assetbank.co.uk/support/documentation/install/ffmpeg-debian-squeeze/ffmpeg-debian-jessie/](https://www.assetbank.co.uk/support/documentation/install/ffmpeg-debian-squeeze/ffmpeg-debian-jessie/)
+ - [http://www.jeffreythompson.org/blog/2014/11/13/installing-ffmpeg-for-raspberry-pi/](http://www.jeffreythompson.org/blog/2014/11/13/installing-ffmpeg-for-raspberry-pi/)
+ 
+Raspberry Pi 3 Model B with [Raspbian Jessie Lite 2017-01-11](http://vx2-downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-01-10/2017-01-11-raspbian-jessie-lite.zip)
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo nano /etc/apt/sources.list
+#
+# add `deb http://www.deb-multimedia.org jessie main non-free`
+# and `deb-src http://www.deb-multimedia.org jessie main non-free`
+#
+sudo apt-get update 
+sudo apt-get install deb-multimedia-keyring
+sudo apt-get update 
+sudo apt-get remove ffmpeg
+sudo apt-get install build-essential libmp3lame-dev libvorbis-dev libtheora-dev libspeex-dev yasm pkg-config libfaac-dev libopenjpeg-dev libx264-dev
+cd /usr/src/
+sudo apt-get install git
+sudo git clone git://git.videolan.org/x264
+cd x264/
+sudo ./configure --host=arm-unknown-linux-gnueabi --enable-static --disable-opencl
+sudo make
+sudo make install
+cd /usr/src
+sudo git clone https://github.com/FFmpeg/FFmpeg.git
+cd FFmpeg/
+sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree
+sudo make -j4
+sudo make install
+ffmpeg -encoders # test it works
+```
+
 # Install and test ffmpeg on Raspberry Pi 3 (with Docker)
 
 Docker containers were used, so ffmpeg was not installed directly on the RPi. The docker image has been pushed to [https://hub.docker.com/r/tgogos/ffmpeg/](https://hub.docker.com/r/tgogos/ffmpeg/), you can save time by pulling it and then start testing... If you'd like to reproduce the whole process take a look at the section below "Download ffmpeg source code / compile"
