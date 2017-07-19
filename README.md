@@ -9,11 +9,8 @@ Raspberry Pi 3 Model B with [Raspbian Jessie Lite 2017-01-11](http://vx2-downloa
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
-sudo nano /etc/apt/sources.list
-#
-# add `deb http://www.deb-multimedia.org jessie main non-free`
-# and `deb-src http://www.deb-multimedia.org jessie main non-free`
-#
+sudo sh -c 'echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list.d/deb-multimedia.list'
+sudo sh -c 'echo "deb-src http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list.d/deb-multimedia.list'
 sudo apt-get update 
 sudo apt-get install deb-multimedia-keyring
 sudo apt-get update 
