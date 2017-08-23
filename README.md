@@ -1,3 +1,7 @@
+# Static builds (update 2017/08/23)
+
+Maybe you may save time by using the static builds found here: [https://www.johnvansickle.com/ffmpeg/](https://www.johnvansickle.com/ffmpeg/)
+
 # FFmpeg on Raspberry Pi 3 with h264 support (2017/01/23)
 
 Steps below are a combination of these 2 sources:
