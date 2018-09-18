@@ -1,6 +1,8 @@
 # Static builds (update 2017/08/23)
 
-Maybe you may save time by using the static builds found here: [https://www.johnvansickle.com/ffmpeg/](https://www.johnvansickle.com/ffmpeg/)
+**--- Downloading and compiling the source code takes a lot of time. ---**
+
+**You can save time** by using the static builds maintained by John Van Sickle and can be found here: [https://www.johnvansickle.com/ffmpeg/](https://www.johnvansickle.com/ffmpeg/). Just make sure that you download the appropriate binary depending on the processor architecture you use.
 
 # FFmpeg on Raspberry Pi 3 with h264 support (2017/01/23)
 
