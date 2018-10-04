@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo sh -c 'echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list.d/deb-multimedia.list'
